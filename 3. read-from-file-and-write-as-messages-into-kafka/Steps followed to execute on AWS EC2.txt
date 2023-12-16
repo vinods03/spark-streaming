@@ -1,0 +1,31 @@
+Used Notepad++ as the editor .. could have used VSCode as well.
+
+Why did i go to AWS for this ? I found it very difficult to install confluent_kafka locally. 
+Why did i not use Databricks for this ? Databricks is more suitable for hadoop / spark operations. Kafka producer code is in python.
+
+===============================
+
+Create a S3 bucket for-streaming-project
+
+Upload data folder and producer.py from C:\Vinod\SparkStreamingOct2023\3-read-from-file-and-write-as-messages-into-kafka-VSCode into this bucket
+
+Launch an AWS Ec2 instance with public IP and access to S3
+
+aws s3 cp s3://for-streaming-project/producer.py .
+
+mkdir data
+
+cd data
+
+aws s3 cp s3://for-streaming-project/data/ . --recursive
+
+cd ..
+
+sudo yum -y upgrade
+sudo yum -y install python3-pip
+
+sudo pip3 install confluent_kafka
+
+python3 producer.py
+
+Check for messages in the topic created in confluent.cloud.

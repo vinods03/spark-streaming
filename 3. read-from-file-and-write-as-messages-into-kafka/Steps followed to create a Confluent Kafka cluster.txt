@@ -1,0 +1,4 @@
+Created an account in confluent.cloud
+Created a kafka cluster - vinod_kafka_cluster
+Created a topic - "invoices" with 6 partitions and retention of 1 day
+Did not create schema for message keys or values
